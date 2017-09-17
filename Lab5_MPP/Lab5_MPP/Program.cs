@@ -18,11 +18,11 @@ namespace Lab5_MPP
                 {
                     Console.WriteLine("Информация об исполняющем потоке:");
                     Console.WriteLine("Организационный ID потока - " + Thread.CurrentThread.ManagedThreadId);
-                    Console.WriteLine("Имя потока - " + Thread.CurrentThread.Name);
                     Console.WriteLine("Приоритет потока - " + Thread.CurrentThread.Priority);
                     Console.WriteLine("Состояние потока - " + Thread.CurrentThread.ThreadState);
                     Console.WriteLine("Поток фоновый - " + ((Thread.CurrentThread.IsBackground) ? "Да":"Нет"));
                     Console.WriteLine("\n");
+                    Thread.Sleep(20);
                 };
             Parallel.WaitAll(del_arr);
             Console.WriteLine("Потоки отработали");
