@@ -10,18 +10,22 @@ namespace Lab5_MPP
        
         static void Func()
         {
+            const
+                int MIN_FREEZE_TIME = 1000,
+                    MAX_FREEZE_TIME = 5000;
+                    
             object locker = new object();
             int time_to_sleep = 0;
             lock (locker)
             {
                 var rand = new Random((int)DateTime.Now.Ticks);
 
-                time_to_sleep = rand.Next(1000, 5000);
+                time_to_sleep = rand.Next(MIN_FREEZE_TIME, MAX_FREEZE_TIME);
 
-                Console.WriteLine("Процесс заморожен на {0}", time_to_sleep/1000);
+                Console.WriteLine("Поток заморожен на {0}", time_to_sleep/1000);
                 Thread.Sleep(time_to_sleep);
             }
-            Console.WriteLine("Процесс возобновлён после паузы в {0}", time_to_sleep / 1000);
+            Console.WriteLine("Поток возобновлён после паузы в {0}", time_to_sleep / 1000);
 
         }
 
